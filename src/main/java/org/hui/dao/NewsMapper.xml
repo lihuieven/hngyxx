@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.hui.dao.NewsDao">
+    <select id="indexSelectNews" resultType="org.hui.entity.News" parameterType="java.lang.String">
+        select * from lh_news where nclass = #{nclass} order by anow desc limit 8
+    </select>
+
+    <insert id="insertOne" parameterType="String">
+        insert into lh_news(title,content,nclass,img,anow) values (#{title},#{content},#{nclass},#{img},now())
+    </insert>
+</mapper>
